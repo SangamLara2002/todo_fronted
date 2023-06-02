@@ -20,7 +20,7 @@ function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    let response = await axios.post("http://localhost:5002/yourtodolist", {
+    let response = await axios.post("https://todo-backend-e67k.onrender.com/yourtodolist", {
       userTitle: title,
       userDescription: description,
       userID: userID,
@@ -32,7 +32,7 @@ function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios.get(`http://localhost:5002/all/`, {
+      const response = await axios.get(`https://todo-backend-e67k.onrender.com/all/`, {
         params: {
           userID: userID,
         },

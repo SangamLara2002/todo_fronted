@@ -9,7 +9,7 @@ function Todo({ todo,key,checkuser }) {
   const [showInput, setShowInput] = useState(false);
   const [dummy,setDummy] = useState(false)
   async function handleUpdate(id) {
-    let response = await axios.put("http://localhost:5002/update", {
+    let response = await axios.put("https://todo-backend-e67k.onrender.com/update", {
       id: id,
       newtitle: newtitle,
       newDescription: newDescription,
@@ -19,7 +19,7 @@ function Todo({ todo,key,checkuser }) {
 
   async function handleDelete(id) {
    
-    let response = await axios.delete(`http://localhost:5002/delete/${id}`);
+    let response = await axios.delete(`https://todo-backend-e67k.onrender.com/delete/${id}`);
     console.log(response)
     setDummy(!dummy);
   }
@@ -39,14 +39,14 @@ function Todo({ todo,key,checkuser }) {
         <div style={{ display: showInput ? "block" : "none" }}>
           <input
             type="text"
-            className="edit"
-            placeholder="New title" className="input"
+            className="edit input"
+            placeholder="New title" 
             onChange={(e) => setNewtitle(e.target.value)}
           />
           <input
             type="text"
-            className="edit"
-            placeholder="New Description" className="input"
+            className="edit input"
+            placeholder="New Description"
             onChange={(e) => setNewDescription(e.target.value)}
           />
           <button
